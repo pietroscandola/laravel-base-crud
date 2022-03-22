@@ -4,10 +4,10 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link{{ Request::is('comic/*')? 'active' : ''}}" href="{{ url('/')}}">Home</a>
+                <a class="nav-link{{ Request::is('comic/*')? 'active' : ''}} me-3" href="{{ url('/')}}">HOME</a>
               </li>              
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('comics.index')}}">Comics</a>
+                <a class="nav-link" href="{{ route('comics.index')}}">COMICS</a>
               </li> 
             </ul>
           </div>
