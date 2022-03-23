@@ -28,7 +28,7 @@
                         <div class="pt-2 d-flex">
                             <a href="{{ route('comics.edit', $comic->id) }}"
                                 class="btn btn-sm btn-warning me-2">Modifica</a>
-                            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST" class="delete-comic">
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-sm btn-danger" type="submit">Elimina</button>
@@ -39,4 +39,17 @@
             @endforeach
         </div>
     </div>
+@endsection
+
+@section('additional_scripts')
+    <script>
+        const deleteComic = document.querySelectorAll('.delete-comic')
+        deleteComic.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const content = confirm('Sei sicuro di eliminare questo fumetto?');
+                if (content) e.target.submit();
+            })
+        })
+    </script>
 @endsection
