@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container mt-5">
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="d-flex justify-content-end mb-3">
             <a href="{{ route('comics.create') }}" class="btn btn-small btn-success">Aggiungi un Fumetto</a>
         </div>
@@ -20,8 +25,14 @@
                                 più
                             </a>
                         </div>
-                        <div class="pt-2">
-                            <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-sm btn-warning">Modifica</a>
+                        <div class="pt-2 d-flex">
+                            <a href="{{ route('comics.edit', $comic->id) }}"
+                                class="btn btn-sm btn-warning me-2">Modifica</a>
+                            <form action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-sm btn-danger" type="submit">Elimina</button>
+                            </form>
                         </div>
                     </div>
                 </div>

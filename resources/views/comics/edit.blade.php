@@ -71,8 +71,8 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary me-3">Modifica</button>
-            <button type="reset" class="btn btn-secondary">Cancella</button>
+            <button type="submit" class="btn btn-primary me-3">Conferma</button>
+            <a href="{{ route('comics.index') }}" class="btn btn-outline-info">Indietro</a>
         </form>
     </div>
 @endsection
